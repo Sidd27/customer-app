@@ -1,13 +1,22 @@
 {
   "name": "customer-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "serve": "node server",
+    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"NODE_ENV=dev nodemon server\" \"ng build --watch\"",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "server/dist/*",
+      "e2e/*"
+    ],
+    "delay": "2500"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +28,15 @@
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
+    "bunyan": "^1.8.12",
+    "bunyan-rotating-file-stream": "^1.6.3",
+    "express": "^4.17.1",
+    "glob": "^7.1.6",
+    "helmet": "^3.23.1",
+    "knex": "^0.21.1",
+    "mysql": "^2.18.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -27,10 +45,11 @@
     "@angular-devkit/build-angular": "~0.901.9",
     "@angular/cli": "~9.1.9",
     "@angular/compiler-cli": "~9.1.11",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "concurrently": "^5.2.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.0",
@@ -38,6 +57,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "nodemon": "^2.0.4",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
