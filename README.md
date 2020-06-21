@@ -1,5 +1,10 @@
 # CustomerApp
 
+This is different MEAN Stack project where Acronym means as below
+- *M* : MySql
+- *E* : Express
+- *A* : Angular(v9)
+- *N* : NodeJS
 
 ## Installation
 
@@ -9,10 +14,12 @@
 - Create user for data base as `username=customerUser` and `password=customerPassword`.
 - Grant all privlieges to user.
 - run `npm serve` to run only server side application.
+
 ___
 ***NOTE***
 > You can change db config from `server/configs` folder open `dev.js` and edit the mySql configuration
 ____
+
 ## Import Data
 - Use mySql JSON import, Mock data are available in `mock-data` folder.
 - First Import `Customer.json` in `profiles` table as Address Data has foreign key dependency.
@@ -21,6 +28,7 @@ ___
 ***NOTE:***
 > You have to run `npm serve` once before the import so that project can create tables
 ___
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:9001/`.
@@ -32,6 +40,12 @@ Run `npm start` for a dev server. Navigate to `http://localhost:9001/`.
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Server Logs
+
+Server logs are present in `server/logs` folder there are two types of logs currently.
+- **App logs**: These logs are logged when we trigger them manually.
+- **Access logs**: These logs are logged when any request comes to server.
 
 ## Build
 
