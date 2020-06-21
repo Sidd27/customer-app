@@ -1,0 +1,33 @@
+.card {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  height: 40px;
+  width: 400px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fafafa;
+    transform: translateY(-3px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.data-point {
+  width: 30%;
+
+  &:not(:last-child) {
+    border-right: 1px solid #eee;
+  }
+
+  .heading {
+    font-weight: bold;
+  }
+}
