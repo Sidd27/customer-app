@@ -1,9 +1,15 @@
-<div class="address-list">
+<ng-container *ngIf="selectedCustomer">
   <app-loader *ngIf="(loadingAddress$ | async)"></app-loader>
-  <ng-container *ngIf="!(loadingAddress$ | async)  && !(error$ | async)">
-    <app-address-card *ngFor="let address of addressList$ | async" [address]="address"></app-address-card>
-  </ng-container>
-  <h2 *ngIf="error$ | async as error">
-    {{error?.message}}
-  </h2>
-</div>
+  <div *ngIf="!(loadingAddress$ | async)  && !(error$ | async) else error">
+    <h2> Addresses of {{selectedCustomer.name}}</h2>
+    <div class="address-list" *ngIf="(addressList$ | async).length; else noAddress">
+      <app-address-card *ngFor="let address of addressList$ | async" [address]="address"></app-address-card>
+    </div>
+    <ng-template #noAddress>
+      <h2>No Address Found</h2>
+    </ng-template>
+  </div>
+  <ng-template #error>
+    <h2>{{(error$ | async)?.message}}</h2>
+  </ng-template>
+</ng-container>

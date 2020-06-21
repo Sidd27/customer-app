@@ -8,6 +8,8 @@ import { Customer } from '../store/models/customer.model';
 })
 export class CustomerCardComponent implements OnInit {
   @Input() customer: Customer;
+  @Input() active: boolean;
+  
   constructor() {}
 
   ngOnInit(): void {}

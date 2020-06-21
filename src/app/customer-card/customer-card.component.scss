@@ -13,7 +13,8 @@
   line-height: 24px;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &.active {
     background-color: #fafafa;
     transform: translateY(-3px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);

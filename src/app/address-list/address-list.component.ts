@@ -4,6 +4,7 @@ import { Address } from '../store/models/address.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/models/app-state.model';
 import { LoadAddressAction } from '../store/actions/address.action';
+import { Customer } from '../store/models/customer.model';
 
 @Component({
   selector: 'app-address-list',
@@ -16,6 +17,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
   public addressList$: Observable<Array<Address>>;
   public loadingAddress$: Observable<Boolean>;
   public error$: Observable<Error>;
+  public selectedCustomer: Customer;
 
   constructor(private store: Store<AppState>) {}
 
@@ -28,6 +30,7 @@ export class AddressListComponent implements OnInit, OnDestroy {
       .select((store) => store.customer.selected)
       .subscribe((customer) => {
         if (customer) {
+          this.selectedCustomer = customer;
           this.store.dispatch(new LoadAddressAction(customer.id));
         }
       });

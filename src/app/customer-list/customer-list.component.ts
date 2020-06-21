@@ -17,6 +17,7 @@ export class CustomerListComponent implements OnInit {
   public customerList$: Observable<Array<Customer>>;
   public loadingCustomer$: Observable<Boolean>;
   public error$: Observable<Error>;
+  public selectedCustomer$: Observable<Customer>;
 
   constructor(private store: Store<AppState>) {}
 
@@ -26,6 +27,9 @@ export class CustomerListComponent implements OnInit {
       (store) => store.customer.loading
     );
     this.error$ = this.store.select((store) => store.customer.error);
+    this.selectedCustomer$ = this.store.select(
+      (store) => store.customer.selected
+    );
 
     this.store.dispatch(new LoadCustomerAction());
   }

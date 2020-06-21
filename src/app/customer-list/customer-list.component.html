@@ -1,10 +1,16 @@
-<div class="customer-list">
-  <app-loader *ngIf="(loadingCustomer$ | async)"></app-loader>
-  <ng-container *ngIf="!(loadingCustomer$ | async) && !(error$ | async)">
+<app-loader *ngIf="(loadingCustomer$ | async)"></app-loader>
+
+<div *ngIf="!(loadingCustomer$ | async) && !(error$ | async); else error">
+  <div class="customer-list" *ngIf="(customerList$ | async).length; else noCustomer">
     <app-customer-card *ngFor="let customer of customerList$ | async" [customer]="customer"
-      (click)="selectCustomer(customer)"></app-customer-card>
-  </ng-container>
-  <h2 *ngIf="error$ | async as error">
-    {{error?.message}}
-  </h2>
+      (click)="selectCustomer(customer)" [active]="(selectedCustomer$ | async).id === customer.id">
+    </app-customer-card>
+  </div>
+  <ng-template #noCustomer>
+    <h2>No Customer Found</h2>
+  </ng-template>
 </div>
+
+<ng-template #error>
+  <h2>{{(error$ | async)?.message}}</h2>
+</ng-template>
