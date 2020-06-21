@@ -37,15 +37,15 @@ Run `npm start` for a dev server. Navigate to `http://localhost:9001/`.
 - Run `npm run build`
 - Run `npm serve`
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Server Logs
 
 Server logs are present in `server/logs` folder there are two types of logs currently.
 - **App logs**: These logs are logged when we trigger them manually.
 - **Access logs**: These logs are logged when any request comes to server.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
