@@ -24,7 +24,8 @@ const getAddressesByCustomerId = async function (req, res) {
     if (!req.params.id) {
       res.status(400).send({
         'message': ERRORS.CUSTOMER_ID_EMPTY
-      })
+      });
+      return false;
     }
     const data = await Customer.where("id", req.params.id).fetch({
       withRelated: ["address"]

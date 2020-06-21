@@ -1,0 +1,9 @@
+<div class="address-list">
+  <app-loader *ngIf="(loadingAddress$ | async)"></app-loader>
+  <ng-container *ngIf="!(loadingAddress$ | async)  && !(error$ | async)">
+    <app-address-card *ngFor="let address of addressList$ | async" [address]="address"></app-address-card>
+  </ng-container>
+  <h2 *ngIf="error$ | async as error">
+    {{error?.message}}
+  </h2>
+</div>

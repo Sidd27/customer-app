@@ -4,29 +4,16 @@
   align-items: center;
 }
 
-svg#clouds {
-  position: fixed;
-  bottom: -160px;
-  left: -230px;
-  z-index: -10;
-  width: 1920px;
+.customer-container,
+.address-container {
+  height: calc(100vh - 68px);
+  overflow-y: scroll;
 }
 
-.customer-list {
-  max-height: calc(100vh - 100px);
-  overflow-y: scroll;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
-  padding: 16px;
-  width: 460px;
+.customer-container {
+  flex: 1;
 }
 
-.address-container{
-  max-height: calc(100vh - 100px);
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 16px;
-  max-width: 60%;
+.address-container {
+  flex: 2;
 }

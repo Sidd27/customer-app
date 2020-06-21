@@ -2,10 +2,8 @@
 <app-navbar></app-navbar>
 
 <div class="content" role="main">
-  <div class="customer-list">
-    <app-customer-card *ngFor="let customer of customerList" [details]="customer"
-      (click)="getCustomerAddress(customer.id)"></app-customer-card>
-  </div>
-  <div class="address-container">
-    <app-address-card *ngFor="let address of addressList" [address]="address"></app-address-card>
-  </div>
+  <!-- Customer List -->
+  <app-customer-list class="customer-container"></app-customer-list>
+  <!-- Selected Customer Address List -->
+  <app-address-list class="address-container"></app-address-list>
+</div>

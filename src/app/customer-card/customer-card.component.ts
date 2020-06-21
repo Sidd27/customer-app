@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Customer } from '../store/models/customer.model';
 
 @Component({
   selector: 'app-customer-card',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./customer-card.component.scss'],
 })
 export class CustomerCardComponent implements OnInit {
-  @Input() details: any;
+  @Input() customer: Customer;
   constructor() {}
 
   ngOnInit(): void {}

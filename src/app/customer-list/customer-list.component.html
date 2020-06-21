@@ -1,0 +1,10 @@
+<div class="customer-list">
+  <app-loader *ngIf="(loadingCustomer$ | async)"></app-loader>
+  <ng-container *ngIf="!(loadingCustomer$ | async) && !(error$ | async)">
+    <app-customer-card *ngFor="let customer of customerList$ | async" [customer]="customer"
+      (click)="selectCustomer(customer)"></app-customer-card>
+  </ng-container>
+  <h2 *ngIf="error$ | async as error">
+    {{error?.message}}
+  </h2>
+</div>
