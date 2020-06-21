@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "serve": "node server",
+    "serve": "NODE_ENV=prod && node server",
     "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"NODE_ENV=dev nodemon server\" \"ng build --watch\"",
     "build": "ng build --prod",
     "test": "ng test",

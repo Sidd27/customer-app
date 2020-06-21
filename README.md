@@ -1,10 +1,33 @@
 # CustomerApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
+## Installation
+
+- run `npm i` to install dependecies.
+- Install and run mySql.
+- Create Database named as `customer`.
+- Create user for data base as `username=customerUser` and `password=customerPassword`.
+- Grant all privlieges to user.
+- run `npm serve` to run only server side application.
+___
+***NOTE***
+> You can change db config from `server/configs` folder open `dev.js` and edit the mySql configuration
+____
+## Import Data
+- Use mySql JSON import, Mock data are available in `mock-data` folder.
+- First Import `Customer.json` in `profiles` table as Address Data has foreign key dependency.
+- Then Import `Address.json` in `addresses`.
+___
+***NOTE:***
+> You have to run `npm serve` once before the import so that project can create tables
+___
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:9001/`.
+
+## Run Production server
+- Run `npm run build`
+- Run `npm serve`
 
 ## Code scaffolding
 
@@ -12,7 +35,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build or you can use directly `npm run build` which will create production build
 
 ## Running unit tests
 
