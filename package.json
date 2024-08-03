@@ -34,7 +34,7 @@
     "bookshelf": "^1.2.0",
     "bunyan": "^1.8.12",
     "bunyan-rotating-file-stream": "^1.6.3",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "glob": "^7.1.6",
     "helmet": "^3.23.1",
     "knex": "^2.4.0",
